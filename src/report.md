@@ -97,3 +97,5 @@ C: 192.168.0.0~192.168.255.255.
 
   ![ws1-static-ping](screen/ws1_static_ping.png)
   ![ws2-static-ping](screen/ws2_static_ping.png)
+
+## Part 3. Утилита iperf3
