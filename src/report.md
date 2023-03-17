@@ -48,7 +48,10 @@
 *172.16.255.255* - частный
 *10.10.10.10* - частный
 *192.169.168.1* - публичный
-
+  ![public](screen/Public_1.png)
+  ![public](screen/Public_2.png)
+  ![public](screen/Public_3.png)
+  ![public](screen/Public_4.png)
 Частный диапазоны:
 3 сегмента IP-адресов включают:
 A: 10.0.0.0~10.255.255.255, 
@@ -64,10 +67,33 @@ C: 192.168.0.0~192.168.255.255.
 
 ## Part 2. Статическая маршрутизация между двумя машинами
 
-### ws1 - *192.168.100.10*, маска */16*
-  ![ws1-etc](screen/etc_netplan.png)
+### Отобразить существющие интерфейсы:
+#### Существующие интерфейсы ws1
+  ![ws1_ip_a](screen/ws1_ip_a.png)
 
-### ws2 - *172.24.116.8*, маска */12*
+#### Существующие интерфейсы ws2
+  ![ws2_ip_a](screen/ws2_ip_a.png)
+
+### Описать сетевые интерфейсы:
+#### ws1 - *192.168.100.10*, маска */16*
+  ![ws1-etc](screen/ws1_netplan.png)
+
+#### ws2 - *172.24.116.8*, маска */12*
   ![ws2-etc](screen/ws2_netplan.png)
 ### Выполнить команду `netplan apply` для перезапуска сервиса сети
-  ![ws1-apply](screen/netplan_apply_ws1.png)
+  ![ws1-apply](screen/ws1_apply.png)
+  ![ws2-apply](screen/ws2_apply.png)
+
+## 2.1. Добавление статического маршрута вручную
+  ![ws1-ip-r](screen/ws1_ip_r.png)
+  ![ws2-ip-r](screen/ws2_ip_r.png)
+
+## 2.2. Добавление статического маршрута с сохранением
+  
+  ![ws1-r_static](screen/ws1_r_static.png)
+  ![ws2-r_static](screen/ws2_r_static.png)
+
+### Пропинговать соединение между машинами
+
+  ![ws1-static-ping](screen/ws1_static_ping.png)
+  ![ws2-static-ping](screen/ws2_static_ping.png)
