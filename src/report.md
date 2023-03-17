@@ -99,3 +99,25 @@ C: 192.168.0.0~192.168.255.255.
   ![ws2-static-ping](screen/ws2_static_ping.png)
 
 ## Part 3. Утилита iperf3
+### 3.1. Скорость соединения
+ 
+8 Mbps = 1 MB/s
+100 MB/s = 819200 Kbps
+1 Gbps = 1024 Mbps
+
+## 3.2. Утилита iperf3
+### Измерить скорость соединения между ws1 и ws2:
+
+  ![ws1_iperf3](screen/ws1_iperf3_serv.png)
+  ![ws2_iperf3](screen/ws2_iperf3.png)
+  ![ws1_iperf3](screen/ws1_iperf_client.png)
+  ![ws2_iperf3](screen/ws2_iperf3_serv.png)
+
+## Part 4. Сетевой экран
+### 4.1. Утилита iptables
+
+Создать файл /etc/firewall.sh, имитирующий фаерволл, на ws1 и ws2:
+  ![ws1_iptables](screen/ws1_iptables.png)
+  ![ws2_iptables](screen/ws2_iptables.png)
+  ![ws1_iptables_apply](screen/ws1_iptables_apply.png)
+  ![ws2_iptables_apply](screen/ws2_iptables_apply.png)
