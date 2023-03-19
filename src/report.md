@@ -134,3 +134,24 @@ C: 192.168.0.0~192.168.255.255.
 ## Part 5. Статическая маршрутизация сети
 ### 5.1. Настройка адресов машин
 #### Настроить конфигурации машин в etc/netplan/00-installer-config.yaml согласно сети на рисунке.
+  ![ws11_netplan](screen/ws11_netplan.png)
+  ![r1_netplan](screen/r1_netplan.png)
+  ![r2_netplan](screen/r2_netplan.png)
+  ![ws21_netplan](screen/ws21_netplan.png)
+  ![ws22_netplan](screen/ws22_netplan.png)
+
+### Перезапустить сервис сети. Если ошибок нет, то командой ip -4 a проверить, что адрес машины задан верно. Также пропинговать ws22 с ws21. Аналогично пропинговать r1 с ws11.
+  ![ws11_ping](screen/ws11_ping.png)
+  ![r1_ping](screen/r1_ping.png)
+  ![r2_ping](screen/r2_ping.png)
+  ![ws21_ping](screen/ws21_ping.png)
+  ![ws22_ping](screen/ws22_ping.png)
+
+## 5.2. Включение переадресации IP-адресов.
+  ![r1_sysctl](screen/r1_sysctl.png)
+  ![r2_sysctl](screen/r2_sysctl.png)
+  ![r1_sysctl_conf](screen/r1_sysctl_conf.png)
+  ![r2_sysctl_conf](screen/r2_sysctl_conf.png)
+
+## 5.3. Установка маршрута по-умолчанию
+  
