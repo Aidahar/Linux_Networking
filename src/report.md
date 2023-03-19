@@ -154,4 +154,22 @@ C: 192.168.0.0~192.168.255.255.
   ![r2_sysctl_conf](screen/r2_sysctl_conf.png)
 
 ## 5.3. Установка маршрута по-умолчанию
-  
+  ![ws11_gateway](screen/ws11_ip_router.png)
+  ![ws21_gateway](screen/ws21_ip_default.png)
+  ![ws22_gateway](screen/ws22_ip_default.png)
+### router1 && router2
+  ![r1_gateway](screen/r1_ip_default.png)
+  ![r2_gateway](screen/r2_ip_default.png)
+
+#### Вызвать ip r и показать, что добавился маршрут в таблицу маршрутизации
+  ![ws11_ip_r](screen/ws11_ip_r.png)
+  ![ws21_ip_r](screen/ws21_ip_r.png)
+  ![ws22_ip_r](screen/ws22_ip_r.png)
+  ![r1_ip_r](screen/r1_ip_r.png)
+  ![r2_ip_r](screen/r2_ip_r.png)
+
+#### Пропинговать с ws11 роутер r2 и показать на r2, что пинг доходит. 
+  ![ws11_tcpdump](screen/ws11_tcpdump.png)
+  ![r2_tcpdump](screen/r2_tcpdump.png)
+
+## 5.4. Добавление статических маршрутов
