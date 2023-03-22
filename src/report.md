@@ -187,3 +187,43 @@ ip r list 10.10.0.0/[маска сети] и ip r list 0.0.0.0/0
   ![ws11_routing](screen/ws11_ip_routing.png)
   ![ws11_routing_zero](screen/ws11_ip_routing_zero.png)
 
+IP 0.0.0.0 - немаршрутизируемый адрес ipv4, который используется как адрес по умолчанию или адрес-заполнитель. Приоритет сначала на заданный маршрут, если его нет то маршрутизация идет через 0.0.0.0
+
+## 5.5. Построение списка маршрутизаторов
+
+### Запустить на r1 команду дампа:
+tcpdump -tnv -i eth0
+  ![r1_tcpdump](screen/r1_tcpdump.png)
+
+### Построить список маршрутизаторов на пути от ws11 до ws21:
+  ![ws11_traceroute](screen/ws11_traceroute.png)
+  ![r1_traceroute](screen/r1_tcpdump.png)
+
+Программа трасероут отправляет по 3 UDP пакета с TTL=1  и смотрит адрес ответившего узла, и так дальше увеличивая TTL на единицу пока не достигнет конечного узла.
+
+## 5.6. Использование протокола ICMP при маршрутизации
+
+### Запустить на r1 перехват сетевого трафика, проходящего через eth0 с помощью команды:
+tcpdump -n -i eth0 icmp
+
+  ![r1_tcpdump_ping](screen/r1_tcpdump_icmp.png)
+
+### Пропинговать с ws11 несуществующий IP (например, 10.30.0.111) с помощью команды:
+ping -c 1 10.30.0.111
+
+  ![ws11_ping_wrong](screen/ws11_ping_wrong.png)
+
+## Part 6. Динамическая настройка IP с помощью DHCP
+### Для r2 настроить в файле /etc/dhcp/dhcpd.conf конфигурацию службы DHCP:  
+#### указать адрес маршрутизатора по-умолчанию, DNS-сервер и адрес внутренней сети.
+  ![r2_dhcp_config](screen/r2_dhcp_conf.png)
+#### Перезагрузить службу DHCP командой systemctl restart isc-dhcp-server.
+  ![r2_dhcp_restart](screen/r2_dhcp_restart.png)
+
+#### в файле resolv.conf прописать nameserver 8.8.8.8.
+  ![r2_resolv](screen/r2_resolv.png)
+
+#### Машину ws21 перезагрузить при помощи reboot и через ip a показать, что она получила адрес. 
+  ![ws21_dhcp](screen/ws21_dhcp.png)
+#### Также пропинговать ws22 с ws21.
+  ![ws21_ping](screen/ws21_ping_ws22.png)
