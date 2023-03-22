@@ -173,3 +173,17 @@ C: 192.168.0.0~192.168.255.255.
   ![r2_tcpdump](screen/r2_tcpdump.png)
 
 ## 5.4. Добавление статических маршрутов
+
+### Добавить в роутеры r1 и r2 статические маршруты в файле конфигураций. 
+  ![r1_routes](screen/r1_routes.png)
+  ![r2_routes](screen/r2_routes.png)
+
+### Вызвать ip r и показать таблицы с маршрутами на обоих роутерах. 
+  ![r1_ip_r](screen/r1_ip_r_routing.png)
+  ![r2_ip_r](screen/r2_ip_r_routing.png)
+
+### Запустить команды на ws11:
+ip r list 10.10.0.0/[маска сети] и ip r list 0.0.0.0/0
+  ![ws11_routing](screen/ws11_ip_routing.png)
+  ![ws11_routing_zero](screen/ws11_ip_routing_zero.png)
+
