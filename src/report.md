@@ -167,7 +167,7 @@ C: 192.168.0.0~192.168.255.255.
   ![ws22_ip_r](screen/ws22_ip_r.png)
   ![r1_ip_r](screen/r1_ip_r.png)
   ![r2_ip_r](screen/r2_ip_r.png)
-
+dhcpd.png
 #### Пропинговать с ws11 роутер r2 и показать на r2, что пинг доходит. 
   ![ws11_tcpdump](screen/ws11_tcpdump.png)
   ![r2_tcpdump](screen/r2_tcpdump.png)
@@ -221,9 +221,64 @@ ping -c 1 10.30.0.111
   ![r2_dhcp_restart](screen/r2_dhcp_restart.png)
 
 #### в файле resolv.conf прописать nameserver 8.8.8.8.
+  
   ![r2_resolv](screen/r2_resolv.png)
 
 #### Машину ws21 перезагрузить при помощи reboot и через ip a показать, что она получила адрес. 
+  
   ![ws21_dhcp](screen/ws21_dhcp.png)
+  ![ws22_dhcp](screen/ws22_dhcp.png)
+
 #### Также пропинговать ws22 с ws21.
+  
   ![ws21_ping](screen/ws21_ping_ws22.png)
+
+## Установить DHCP на машину r1
+
+  ![r1_macaddress](screen/r1_macaddress.png)
+  ![r1_resolv](screen/r1_resolv_conf.png)
+
+#### Указать MAC адрес у ws11
+
+  ![ws11_macaddress](screen/ws11_macaddress.png)
+
+#### Показать адрес до
+
+  ![ws11_befor_static](screen/ws11_before_static.png)
+
+#### Показать после
+  
+  ![ws11_static_ip](screen/ws11_static_mac_ip.png)
+
+#### Получить айпи по DHCP
+
+  ![ws21_dhclient](screen/ws21_dhclient.png)
+
+## Part 7. NAT
+#### r1 изменяем конфиг
+  
+  ![r1_apache_conf](screen/r1_apache_conf.png)
+
+#### ws22 изменяем конфиг 
+  
+  ![ws22_apache_conf](screen/ws22_apache2_conf.png)
+
+#### r1 запуск сервера
+
+  ![r1_apache_start](screen/r1_apache2_start.png)
+
+#### ws22 запуск сервера
+
+  ![ws22_apache_start](screen/ws22_apache2_start.png)
+
+#### Правила для iptables2
+
+  ![r2_appache_iptables](screen/r2_firewall_apache2.png)
+
+#### Пропинговать ws22 с r1
+
+  ![r1_ping_ws22](screen/r1_ping_ws22.png)
+
+#### Добавить новое правило для ICMP
+
+  [r2_firewall_icmp](screen/r2_firewall_icmp.png)
