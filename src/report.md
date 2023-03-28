@@ -281,4 +281,4 @@ ping -c 1 10.30.0.111
 
 #### Добавить новое правило для ICMP
 
-  [r2_firewall_icmp](screen/r2_firewall_icmp.png)
+  ![r2_firewall_icmp](screen/r2_firewall_icmp.png)
