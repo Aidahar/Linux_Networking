@@ -293,3 +293,7 @@ ping -c 1 10.30.0.111
 #### Добавить новое правило для ICMP
 
   ![r2_firewall_icmp](screen/r2_firewall_icmp.png)
+
+#### Пропинговать ws22 с r1
+
+  ![r1_ping_icmp](screen/r1_ping_ws22_icmp.png)
