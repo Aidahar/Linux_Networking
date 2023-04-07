@@ -102,8 +102,8 @@ C: 192.168.0.0~192.168.255.255.
 ### 3.1. Скорость соединения
  
 8 Mbps = 1 MB/s
-100 MB/s = 819200 Kbps
-1 Gbps = 1024 Mbps
+100 MB/s = 80000 Kbps
+1 Gbps = 1000 Mbps
 
 ## 3.2. Утилита iperf3
 ### Измерить скорость соединения между ws1 и ws2:
@@ -216,6 +216,13 @@ tcpdump -n -i eth0 icmp
 ping -c 1 10.30.0.111
 
   ![ws11_ping_wrong](screen/ws11_ping_wrong.png)
+
+#### Дампы
+  ![ws11_damp](screen/ws11_damp_5.png)
+  ![ws21_damp](screen/ws21_damp_5.png)
+  ![ws22_damp](screen/ws22_damp_5.png)
+  ![r1_damp](screen/r1_damp_5.png)
+  ![r2_damp](screen/r2_damp_5.png)
 
 ## Part 6. Динамическая настройка IP с помощью DHCP
 ### Для r2 настроить в файле /etc/dhcp/dhcpd.conf конфигурацию службы DHCP:  
