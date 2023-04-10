@@ -265,6 +265,15 @@ ping -c 1 10.30.0.111
 
   ![ws21_dhclient](screen/ws21_dhclient.png)
 
+#### Команды которыми пользовался: sudo dhclient -r сбрасывает текущий айпи, вызов команды sudo dhclient делает обращение к серверу и получает айпи.
+
+#### Дампы
+  ![ws11_damp_6](screen/ws11_damp_6.png)
+  ![ws21_damp_6](screen/ws21_damp_6.png)
+  ![ws22_damp_6](screen/ws22_damp_6.png)
+  ![r1_damp_6](screen/r1_damp_6.png)
+  ![r2_damp_6](screen/r2_damp_6.png)
+
 ## Part 7. NAT
 #### r1 изменяем конфиг
   
