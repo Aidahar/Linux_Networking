@@ -361,3 +361,10 @@ ping -c 1 10.30.0.111
 Для *Remote TCP forwarding*: ssh -R [remote_port](выбираем порт):localhost:[local_port](наш порт 80) [remote_ip](10.20.0.20)
 
 второй терминал открывается командой alt+F2 логинимся и телнетом проверяем соединение
+
+#### Дампы
+  ![ws11_damp_8](screen/ws11_damp_8.png)
+  ![ws21_damp_8](screen/ws21_damp_8.png)
+  ![ws22_damp_8](screen/ws22_damp_8.png)
+  ![r1_damp_8](screen/r1_damp_8.png)
+  ![r2_damp_8](screen/r2_damp_8.png)
