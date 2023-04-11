@@ -300,9 +300,64 @@ ping -c 1 10.30.0.111
   ![r1_ping_ws22](screen/r1_ping_ws22.png)
 
 #### Добавить новое правило для ICMP
-
+  ![r2_nat_rules](screen/r2_nat_rules.png)
   ![r2_firewall_icmp](screen/r2_firewall_icmp.png)
 
 #### Пропинговать ws22 с r1
 
   ![r1_ping_icmp](screen/r1_ping_ws22_icmp.png)
+
+#### Добавить еще одно правило разрешающее маршрутизацию пакетов ICMP
+
+  ![r2_nat-New_rule](screen/r2_nat_new_rule.png)
+
+#### проверить соединение между r1 и ws22
+
+  ![r1_nat_ping](screen/r1_nat_ping_ws22.png)
+
+#### добавить еще два правила для SNAT и DNAT
+
+  ![r2_nat_last_rules](screen/r2_nat_last_rule.png)
+
+##### Проверить соединение по TCP для **SNAT**, для этого с ws22 подключиться к серверу Apache на r1 командой:
+  ![ws22_telnet](screen/ws22_telnet.png)
+
+##### Проверить соединение по TCP для **DNAT**, для этого с r1 подключиться к серверу Apache на ws22 командой `telnet` (обращаться по адресу r2 и порту 8080)
+
+  ![r1_telnet](screen/r1_telnet.png)
+
+#### Дампы
+  ![ws11_nat_damp](screen/ws11_nat_damp.png)
+  ![ws21_nat_damp](screen/ws21_nat_damp.png)
+  ![ws22_nat_damp](screen/ws22_nat_damp.png)
+  ![r1_nat_damp](screen/r1_nat_damp.png)
+  ![r2_nat_damp](screen/r2_nat_damp.png)
+
+## Part 8. Дополнительно. Знакомство с **SSH Tunnels**
+
+##### Запустить на r2 фаервол с правилами из Части 7
+  ![r2_firewall_8](screen/r2_firewall_8.png)
+
+##### Запустить веб-сервер **Apache** на ws22 только на localhost (то есть в файле */etc/apache2/ports.conf* изменить строку `Listen 80` на `Listen localhost:80`)
+  
+  ![ws22_localhost](screen/ws22_localhost.png)
+
+##### Воспользоваться *Local TCP forwarding* с ws21 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws21
+
+  ![ws21_ssh](screen/ws21_sshd.png)
+
+##### Открываем второй терминал на машине ws21 логинимся и проверяем телнетом
+
+  ![ws21_telnet](screen/ws21_tcpforwarding.png)
+
+##### Воспользоваться *Remote TCP forwarding* c ws11 до ws22, чтобы получить доступ к веб-серверу на ws22 с ws11:
+
+  ![ws11_tcpforwarding](screen/ws11_tcpforwarding.png)
+  ![ws11_telnet](screen/ws11_telnet.png)
+
+#####  Описать команды которыми пользовался:  
+Для *Local TCP forwarding*: ssh -L [local_port](выбираем порт):localhost:[local_port](наш порт 80) [remote_ip](10.20.0.20)
+
+Для *Remote TCP forwarding*: ssh -R [remote_port](выбираем порт):localhost:[local_port](наш порт 80) [remote_ip](10.20.0.20)
+
+второй терминал открывается командой alt+F2 логинимся и телнетом проверяем соединение
